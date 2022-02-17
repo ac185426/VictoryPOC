@@ -1,8 +1,8 @@
 import './App.css';
-import { VictoryChart, VictoryBar } from 'victory';
-import Bar from './Charts/Bar';
+import CardComponent from './Components/Card';
+
 function App() {
-  return <Bar />;
+  return <CardComponent />;
 }
 
 export default App;
