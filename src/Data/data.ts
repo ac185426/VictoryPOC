@@ -1,9 +1,8 @@
 const data = [
-  { x: 1, y: 3, label: 'Alpha' },
-  { x: 2, y: 4, label: 'Bravo' },
-  { x: 3, y: 6, label: 'Charlie' },
-  { x: 4, y: 3, label: 'Delta' },
-  { x: 5, y: 7, label: 'Echo' },
+  { quarter: 1, earnings: 13000, label: "Alpha" },
+  { quarter: 2, earnings: 16500, label: "Bravo" },
+  { quarter: 3, earnings: 14250, label: "Charlie" },
+  { quarter: 4, earnings: 19000, label: "Delta" },
 ];
 
 export default data;
