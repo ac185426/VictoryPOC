@@ -7,7 +7,7 @@ const teal60 = '#0E8764';
 const green70 = '#026800';
 const blue50 = '#5792FF';
 
-const colors = [red60, orange50, teal60, green70, blue50];
+//const colors = [red60, orange50, teal60, green70, blue50];
 
 const sansSerif = "'Helvetica Neue', 'Helvetica', sans-serif";
 const letterSpacing = 'normal';

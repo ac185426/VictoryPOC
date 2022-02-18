@@ -1,6 +1,5 @@
 import { Typography } from '@mui/material';
 import React from 'react';
-//import data from '../Data/data';
 
 class Text extends React.Component {
   render() {
