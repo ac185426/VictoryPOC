@@ -1,3 +1,4 @@
+import { Bar } from 'victory';
 import './App.css';
 import CardComponent from './Components/Card';
 
