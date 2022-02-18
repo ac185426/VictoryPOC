@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 
-class Text extends React.Component {
+class CustomText extends React.Component {
   render() {
     const { direction, dx, x, y, id, textAnchor }: any = this.props;
 
@@ -15,4 +15,4 @@ class Text extends React.Component {
   }
 }
 
-export default Text;
+export default CustomText;
