@@ -8,14 +8,33 @@ import {
 } from "victory";
 import data from "./Data/data";
 import CardComponent from "./Components/Card";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import props, { Children } from "react";
+import { CustomLabel } from "./Components/CustomLabel";
+
+const useVictoryTheme = () => {
+  const theme = useTheme();
+  const baseTheme = VictoryTheme.material as any;
+  console.log(baseTheme);
+  // Just modify bar label styles only for now as a test
+  baseTheme.bar.style.labels = {
+    ...baseTheme.bar.style.labels,
+    fontFamily: theme.typography.fontFamily,
+    fontSize: theme.typography.caption.fontSize ?? 12,
+    letterSpacing: "normal",
+    fill: theme.palette.text.primary,
+  };
+
+  return baseTheme;
+};
 
 export const App = (props: any) => {
+  const theme = useVictoryTheme();
+
   return (
     <VictoryChart
       // adding the material theme provided with Victory
-      theme={VictoryTheme.material}
+      theme={theme}
       // domainPadding will add space to each side of VictoryBar to
       // prevent it from overlapping the axis
       domainPadding={{ x: 20, y: 20 }}
@@ -42,14 +61,8 @@ export const App = (props: any) => {
         y="earnings"
         //labels
         labels={({ datum }) => `y: ${datum.y}`}
-        labelComponent={
-          // <VictoryLabel
-          //   dy={-20}
-          //   backgroundStyle={{ fill: "tomato", opacity: 0.6 }}
-          //   backgroundPadding={{ bottom: 5, top: 5 }}
-          // ></VictoryLabel>
-          <Typography {...props}></Typography>
-        }
+        // @ts-ignore
+        labelComponent={<CustomLabel />}
       />
     </VictoryChart>
   );
