@@ -57,7 +57,7 @@ const retailTheme = {
   axis: assign({
     style: {
       axis: {
-        stroke: green70,
+        stroke: blue50,
         size: 10,
       },
       axisLabels: {
@@ -65,12 +65,12 @@ const retailTheme = {
         padding: 30,
       },
       grid: {
-        stroke: green70,
+        stroke: orange50,
         fill: 'none',
         pointerEvents: 'painted',
       },
       ticks: {
-        stroke: orange50,
+        stroke: green70,
         size: 10,
         fill: 'transparent',
       },

@@ -14,33 +14,3 @@ First part:
 
 Second part:
 Fullstory and A/B testing
-
-
-
-
-
-//   const {
-//     active,
-//     angle,
-//     backgroundComponent,
-//     backgroundPadding,
-//     backgroundStyle,
-//     capHeight,
-//     className,
-//     data,
-//     datum,
-//     desc,
-//     direction,
-//     dx,
-//     dy,
-//     events,
-//     groupComponent,
-//     height,
-//     id,
-//     index,
-//     inline,
-//     labelPlacement,
-//     lineHeight,
-//     origin,
-//     polar,
-//   } = props;

@@ -7,11 +7,14 @@ import retailTheme from '../Themes/retailTheme';
 
 const CardComponent = () => {
   const [theme, setTheme] = useState(bankingTheme);
+  const [lob, setLob] = useState('Banking');
   const themeHandler = () => {
     if (theme === bankingTheme) {
       setTheme(retailTheme);
+      setLob('Retail');
     } else {
       setTheme(bankingTheme);
+      setLob('Banking');
     }
   };
 
@@ -23,7 +26,7 @@ const CardComponent = () => {
             Victory POC
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-            Card Component
+            {lob}
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
