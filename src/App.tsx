@@ -15,12 +15,12 @@ import { CustomLabel } from "./Components/CustomLabel";
 const useVictoryTheme = () => {
   const theme = useTheme();
   const baseTheme = VictoryTheme.material as any;
-  console.log(baseTheme);
   // Just modify bar label styles only for now as a test
   baseTheme.bar.style.labels = {
     ...baseTheme.bar.style.labels,
     fontFamily: theme.typography.fontFamily,
-    fontSize: theme.typography.caption.fontSize ?? 12,
+    fontSize:
+      theme.typography.caption.fontSize ?? baseTheme.bar.style.labels.fontSize,
     letterSpacing: "normal",
     fill: theme.palette.text.primary,
   };
