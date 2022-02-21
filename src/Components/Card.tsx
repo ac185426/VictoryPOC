@@ -1,27 +1,30 @@
 import Bar from '../Charts/Bar';
 import { Box, Card, CardContent, Button, Typography } from '@mui/material';
 import { useState } from 'react';
-import bankingTheme from '../Themes/bankingTheme';
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
+import lightTheme from '../Themes/lightTheme';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel, Background } from 'victory';
 import data from '../Data/data';
 import { CustomText } from '../Components/CustomText';
-import retailTheme from '../Themes/retailTheme';
+import darkTheme from '../Themes/darkTheme';
 
 const CardComponent = () => {
-  const [theme, setTheme] = useState(bankingTheme);
-  const [lob, setLob] = useState('Banking');
+  const [theme, setTheme] = useState(lightTheme);
+  const [lob, setLob] = useState('Light');
+  const [background, setBackground] = useState('#ffffff');
   const themeHandler = () => {
-    if (theme === bankingTheme) {
-      setTheme(retailTheme);
-      setLob('Retail');
+    if (theme === lightTheme) {
+      setTheme(darkTheme);
+      setLob('Dark');
+      setBackground('#2C2C2E');
     } else {
-      setTheme(bankingTheme);
-      setLob('Banking');
+      setTheme(lightTheme);
+      setLob('Light');
+      setBackground('#ffffff');
     }
   };
 
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'row', backgroundColor: '#edf0ee' }}>
+    <Card sx={{ display: 'flex', flexDirection: 'row', backgroundColor: background }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
@@ -32,12 +35,22 @@ const CardComponent = () => {
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-          <Button variant="outlined" onClick={themeHandler}>
+          <Button
+            variant="outlined"
+            onClick={themeHandler}
+            sx={{
+              color: '#491668',
+              outlined: '#491668',
+              outlinedInherit: '#491668',
+              outlinedPrimary: '#491668',
+              outlinedSecondary: '#491668',
+            }}
+          >
             Change Theme
           </Button>
         </Box>
       </Box>
-      <Box>
+      <Box sx={{ color: '#EBEBF599' }}>
         {/* <Bar /> */}
         <VictoryChart domainPadding={50} theme={theme}>
           <VictoryAxis

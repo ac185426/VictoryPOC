@@ -1,11 +1,11 @@
 import { assign } from 'lodash';
 
 //colors
-const blue80 = '#233A66';
+const red60 = '#CC3933';
 const orange50 = '#F56B03';
-const blue50 = '#5792FF';
 const teal60 = '#0E8764';
-const magenta50 = '#EB27A6';
+const green70 = '#026800';
+const blue50 = '#5792FF';
 
 const purple90 = '#F5EEFD';
 const purple80 = '#D8BBF6';
@@ -17,6 +17,10 @@ const purple30 = '#682392';
 const purple20 = '#491668';
 const purple10 = '#2C0A40';
 const purple5 = '#1D052C';
+
+const primary = '#ffffff';
+const secondary = '#EBEBF599';
+const tertiary = '#EBEBF54D';
 
 const sansSerif = "'Helvetica Neue', 'Helvetica', sans-serif";
 const letterSpacing = 'normal';
@@ -36,26 +40,21 @@ const baseLabelStyles = {
   fontSize,
   letterSpacing,
   padding,
-  fill: teal60,
+  fill: 'white',
   stroke: 'transparent',
   strokeWidth: 0,
 };
 
-const centeredLabelStyles = assign({ textAnchor: 'middle' }, baseLabelStyles);
 // *
 // * Strokes
 // *
 
-// const strokeDasharray = '10, 5';
-// const strokeLinecap = 'round';
-// const strokeLinejoin = 'round';
-
-const bankingTheme = {
+const darkTheme = {
   area: assign(
     {
       style: {
         data: {
-          fill: teal60,
+          fill: blue50,
         },
         labels: baseLabelStyles,
       },
@@ -65,7 +64,7 @@ const bankingTheme = {
   axis: assign({
     style: {
       axis: {
-        stroke: blue50, //X and Y axis black or gray
+        stroke: purple70,
         size: 10,
       },
       axisLabels: {
@@ -73,18 +72,19 @@ const bankingTheme = {
         padding: 30,
       },
       grid: {
-        stroke: magenta50, //gridlines should be gray
-        fill: magenta50,
+        stroke: '#EBEBF54D',
+        fill: 'none',
         pointerEvents: 'painted',
       },
       ticks: {
-        stroke: 'black',
+        stroke: '#EBEBF54D',
         size: 10,
         fill: 'transparent',
       },
       tickLabels: {
         fontSize: 15,
         padding: 5,
+        fill: 'white',
       },
     },
   }),
@@ -92,9 +92,9 @@ const bankingTheme = {
     {
       style: {
         data: {
-          fill: blue80,
+          fill: purple90,
           padding,
-          stroke: orange50,
+          stroke: purple70,
           strokeWidth: 2,
         },
         labels: baseLabelStyles,
@@ -105,4 +105,4 @@ const bankingTheme = {
   chart: baseProps,
 };
 
-export default bankingTheme;
+export default darkTheme;

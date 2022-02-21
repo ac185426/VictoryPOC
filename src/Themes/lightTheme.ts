@@ -1,11 +1,23 @@
 import { assign } from 'lodash';
 
 //colors
-const red60 = '#CC3933';
-const orange50 = '#F56B03';
-const teal60 = '#0E8764';
-const green70 = '#026800';
-const blue50 = '#5792FF';
+const purple90 = '#F5EEFD';
+const purple80 = '#D8BBF6';
+const purple70 = '#C797F1';
+const purple60 = '#B56CEB';
+const purple50 = '#A744E5';
+const purple40 = '#8D32C3';
+const purple30 = '#682392';
+const purple20 = '#491668';
+const purple10 = '#2C0A40';
+const purple5 = '#1D052C';
+
+const primary = '#ffffff';
+const secondary = '#EBEBF599';
+const tertiary = '#EBEBF54D';
+
+// background: #FFFFFF80;
+// background: #4D4D4D;
 
 const sansSerif = "'Helvetica Neue', 'Helvetica', sans-serif";
 const letterSpacing = 'normal';
@@ -25,21 +37,26 @@ const baseLabelStyles = {
   fontSize,
   letterSpacing,
   padding,
-  fill: teal60,
+  fill: 'black',
   stroke: 'transparent',
   strokeWidth: 0,
 };
 
+const centeredLabelStyles = assign({ textAnchor: 'middle' }, baseLabelStyles);
 // *
 // * Strokes
 // *
 
-const retailTheme = {
+// const strokeDasharray = '10, 5';
+// const strokeLinecap = 'round';
+// const strokeLinejoin = 'round';
+
+const lightTheme = {
   area: assign(
     {
       style: {
         data: {
-          fill: blue50,
+          fill: 'teal60',
         },
         labels: baseLabelStyles,
       },
@@ -49,20 +66,20 @@ const retailTheme = {
   axis: assign({
     style: {
       axis: {
-        stroke: blue50,
-        size: 10,
+        stroke: purple20, //X and Y axis black or gray
+        size: 15,
       },
       axisLabels: {
         fontSize: 20,
         padding: 30,
       },
       grid: {
-        stroke: orange50,
-        fill: 'none',
+        stroke: secondary, //gridlines should be gray
+        fill: tertiary,
         pointerEvents: 'painted',
       },
       ticks: {
-        stroke: green70,
+        stroke: 'black',
         size: 10,
         fill: 'transparent',
       },
@@ -76,9 +93,9 @@ const retailTheme = {
     {
       style: {
         data: {
-          fill: red60,
+          fill: purple80,
           padding,
-          stroke: orange50,
+          stroke: purple20,
           strokeWidth: 2,
         },
         labels: baseLabelStyles,
@@ -89,4 +106,4 @@ const retailTheme = {
   chart: baseProps,
 };
 
-export default retailTheme;
+export default lightTheme;
