@@ -1,18 +1,16 @@
-import { Typography } from '@mui/material';
-import React from 'react';
+import { Typography, useTheme } from '@mui/material';
+import React, { Component } from 'react';
+import { VictoryLabel } from 'victory';
+import type { VictoryBarProps, VictoryBar } from 'victory';
 
-class CustomText extends React.Component {
-  render() {
-    const { direction, dx, x, y, id, textAnchor }: any = this.props;
+export const CustomText = (props: any) => {
+  const theme = useTheme();
+  const {
+    labelPlacement: _labelPlacement,
+    verticalAnchor: _verticalAnchor,
+    disableInlineStyles,
+    ...domProps
+  } = props;
 
-    return (
-      <g role="presentation">
-        <text direction={direction} dx={dx} x={x} y={y} id={id} textAnchor={textAnchor}>
-          <Typography sx={{ color: 'red' }} />
-        </text>
-      </g>
-    );
-  }
-}
-
-export default CustomText;
+  return <text {...domProps}>{domProps.text}</text>;
+};

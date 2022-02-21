@@ -1,8 +1,8 @@
 import React from 'react';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from 'victory';
 import data from '../Data/data';
-import CustomText from '../Components/CustomText';
-//import bankingTheme from '../Themes/bankingTheme';
+import { CustomText } from '../Components/CustomText';
+import bankingTheme from '../Themes/bankingTheme';
 
 const Bar = () => {
   return (

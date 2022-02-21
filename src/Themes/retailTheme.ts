@@ -7,8 +7,6 @@ const teal60 = '#0E8764';
 const green70 = '#026800';
 const blue50 = '#5792FF';
 
-//const colors = [red60, orange50, teal60, green70, blue50];
-
 const sansSerif = "'Helvetica Neue', 'Helvetica', sans-serif";
 const letterSpacing = 'normal';
 const fontSize = 12;
@@ -17,8 +15,6 @@ const fontSize = 12;
 // *
 const padding = 8;
 const baseProps = {
-  width: 350,
-  height: 350,
   padding: 50,
 };
 // *
@@ -29,18 +25,14 @@ const baseLabelStyles = {
   fontSize,
   letterSpacing,
   padding,
-  fill: blue50,
+  fill: teal60,
   stroke: 'transparent',
   strokeWidth: 0,
 };
 
-const centeredLabelStyles = assign({ textAnchor: 'middle' }, baseLabelStyles);
 // *
 // * Strokes
 // *
-const strokeDasharray = '10, 5';
-const strokeLinecap = 'round';
-const strokeLinejoin = 'round';
 
 const retailTheme = {
   area: assign(
@@ -86,7 +78,8 @@ const retailTheme = {
         data: {
           fill: red60,
           padding,
-          strokeWidth: 0,
+          stroke: orange50,
+          strokeWidth: 2,
         },
         labels: baseLabelStyles,
       },

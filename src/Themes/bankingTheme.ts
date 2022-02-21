@@ -7,6 +7,17 @@ const blue50 = '#5792FF';
 const teal60 = '#0E8764';
 const magenta50 = '#EB27A6';
 
+const purple90 = '#F5EEFD';
+const purple80 = '#D8BBF6';
+const purple70 = '#C797F1';
+const purple60 = '#B56CEB';
+const purple50 = '#A744E5';
+const purple40 = '#8D32C3';
+const purple30 = '#682392';
+const purple20 = '#491668';
+const purple10 = '#2C0A40';
+const purple5 = '#1D052C';
+
 const sansSerif = "'Helvetica Neue', 'Helvetica', sans-serif";
 const letterSpacing = 'normal';
 const fontSize = 12;
@@ -15,8 +26,6 @@ const fontSize = 12;
 // *
 const padding = 8;
 const baseProps = {
-  width: 350,
-  height: 350,
   padding: 50,
 };
 // *
@@ -27,7 +36,7 @@ const baseLabelStyles = {
   fontSize,
   letterSpacing,
   padding,
-  fill: blue50,
+  fill: teal60,
   stroke: 'transparent',
   strokeWidth: 0,
 };
@@ -36,16 +45,17 @@ const centeredLabelStyles = assign({ textAnchor: 'middle' }, baseLabelStyles);
 // *
 // * Strokes
 // *
-const strokeDasharray = '10, 5';
-const strokeLinecap = 'round';
-const strokeLinejoin = 'round';
+
+// const strokeDasharray = '10, 5';
+// const strokeLinecap = 'round';
+// const strokeLinejoin = 'round';
 
 const bankingTheme = {
   area: assign(
     {
       style: {
         data: {
-          fill: blue50,
+          fill: teal60,
         },
         labels: baseLabelStyles,
       },
@@ -55,7 +65,7 @@ const bankingTheme = {
   axis: assign({
     style: {
       axis: {
-        stroke: blue50,
+        stroke: blue50, //X and Y axis black or gray
         size: 10,
       },
       axisLabels: {
@@ -63,12 +73,12 @@ const bankingTheme = {
         padding: 30,
       },
       grid: {
-        stroke: magenta50,
-        fill: 'none',
+        stroke: magenta50, //gridlines should be gray
+        fill: magenta50,
         pointerEvents: 'painted',
       },
       ticks: {
-        stroke: orange50,
+        stroke: 'black',
         size: 10,
         fill: 'transparent',
       },
@@ -84,7 +94,8 @@ const bankingTheme = {
         data: {
           fill: blue80,
           padding,
-          strokeWidth: 0,
+          stroke: orange50,
+          strokeWidth: 2,
         },
         labels: baseLabelStyles,
       },
