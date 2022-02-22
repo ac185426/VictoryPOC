@@ -50,7 +50,7 @@ const CardComponent = ({ show }: any) => {
           <Button variant="outlined" onClick={themeHandler} sx={{ cardTheme }}>
             Change Theme
           </Button>
-          <Button variant="outlined" onClick={hidden} sx={{ cardTheme }}>
+          <Button variant="outlined" onClick={hidden} sx={{ cardTheme, ml: 1 }}>
             Hide Grid
           </Button>
         </Box>
