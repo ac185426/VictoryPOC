@@ -40,13 +40,6 @@ const baseLabelStyles = {
   strokeWidth: 0,
 };
 
-// style: {
-//         data: {
-//           fill: (d: any[]) => d.fill,
-//         },
-//         labels: baseLabelStyles,
-//       },
-
 const darkTheme = {
   area: assign(
     {
@@ -70,7 +63,7 @@ const darkTheme = {
         padding: 30,
       },
       grid: {
-        stroke: '#EBEBF54D',
+        stroke: '', //'#EBEBF54D',
         fill: 'none',
         pointerEvents: 'painted',
       },

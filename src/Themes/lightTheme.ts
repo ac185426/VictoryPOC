@@ -29,6 +29,7 @@ const padding = 8;
 const baseProps = {
   padding: 50,
 };
+
 // *
 // * Labels
 // *
@@ -41,15 +42,6 @@ const baseLabelStyles = {
   stroke: 'transparent',
   strokeWidth: 0,
 };
-
-const centeredLabelStyles = assign({ textAnchor: 'middle' }, baseLabelStyles);
-// *
-// * Strokes
-// *
-
-// const strokeDasharray = '10, 5';
-// const strokeLinecap = 'round';
-// const strokeLinejoin = 'round';
 
 const lightTheme = {
   area: assign(
@@ -74,7 +66,7 @@ const lightTheme = {
         padding: 30,
       },
       grid: {
-        stroke: secondary, //gridlines should be gray
+        stroke: '', //tertiary, //gridlines should be gray
         fill: tertiary,
         pointerEvents: 'painted',
       },
