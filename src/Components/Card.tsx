@@ -9,7 +9,7 @@ import darkTheme from '../Themes/darkTheme';
 import lightTheme from '../Themes/lightTheme';
 
 const CardComponent = ({ show }: any) => {
-  const { chartTheme, lob, background, cardTheme, themeHandler } = useCard();
+  const { chartTheme, lob, background, themeHandler, LightStyles, DarkStyles } = useCard();
   const [showGrid, setShowGrid] = useState(true);
   const hidden = () => {
     if (showGrid === true) {
@@ -47,12 +47,34 @@ const CardComponent = ({ show }: any) => {
         </CardContent>
         <Box sx={{ display: 'block', alignItems: 'center', pl: 1, pb: 1 }}>
           {/* Theme Buttons */}
-          <Button variant="outlined" onClick={themeHandler} sx={{ cardTheme }}>
+          {lob === 'Light' && (
+            <div>
+              <LightStyles variant="outlined" onClick={themeHandler}>
+                Change Theme
+              </LightStyles>
+              <LightStyles variant="outlined" onClick={hidden} sx={{ ml: 1 }}>
+                Hide Grid
+              </LightStyles>
+            </div>
+          )}
+
+          {lob === 'Dark' && (
+            <div>
+              <DarkStyles variant="outlined" onClick={themeHandler}>
+                Change Theme
+              </DarkStyles>
+              <DarkStyles variant="outlined" onClick={hidden} sx={{ ml: 1 }}>
+                Hide Grid
+              </DarkStyles>
+            </div>
+          )}
+
+          {/* <Button variant="outlined" onClick={themeHandler}>
             Change Theme
           </Button>
-          <Button variant="outlined" onClick={hidden} sx={{ cardTheme, ml: 1 }}>
+          <Button variant="outlined" onClick={hidden} sx={{ ml: 1 }}>
             Hide Grid
-          </Button>
+          </Button> */}
         </Box>
       </Box>
       <Box sx={{ color: '#EBEBF599' }}>

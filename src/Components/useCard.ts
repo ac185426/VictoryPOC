@@ -1,11 +1,13 @@
 import lightTheme from '../Themes/lightTheme';
 import darkTheme from '../Themes/darkTheme';
 import { useState } from 'react';
+import { styled } from '@mui/material/styles';
+import { Button, ButtonProps } from '@mui/material';
 
 const useCard = () => {
-  const lightStyles = {
+  const LightStyles = styled(Button)<ButtonProps>(() => ({
     '&.MuiButton-root': {
-      border: '#491668',
+      border: '1px solid rgba(73, 22, 104, 1)',
     },
     '&.MuiButton-text': {
       color: '#491668',
@@ -13,11 +15,11 @@ const useCard = () => {
     '&.MuiButton-outlined': {
       color: '#491668',
     },
-  };
+  }));
 
-  const darkStyles = {
+  const DarkStyles = styled(Button)<ButtonProps>(() => ({
     '&.MuiButton-root': {
-      border: '#B56CEB',
+      border: '1px solid rgba(181, 108, 235, 1)',
     },
     '&.MuiButton-text': {
       color: '#B56CEB',
@@ -25,24 +27,21 @@ const useCard = () => {
     '&.MuiButton-outlined': {
       color: '#B56CEB',
     },
-  };
+  }));
 
   const [chartTheme, setChartTheme] = useState(lightTheme);
   const [lob, setLob] = useState('Light');
   const [background, setBackground] = useState('#ffffff');
-  const [cardTheme, setCardTheme] = useState(lightStyles);
 
   const themeHandler = () => {
     if (chartTheme === lightTheme) {
       setChartTheme(darkTheme);
       setLob('Dark');
       setBackground('#2C2C2E');
-      setCardTheme(darkStyles);
     } else {
       setChartTheme(lightTheme);
       setLob('Light');
       setBackground('#ffffff');
-      setCardTheme(lightStyles);
     }
   };
 
@@ -50,8 +49,9 @@ const useCard = () => {
     chartTheme,
     lob,
     background,
-    cardTheme,
     themeHandler,
+    LightStyles,
+    DarkStyles,
   };
 };
 
