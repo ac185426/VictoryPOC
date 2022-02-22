@@ -1,11 +1,6 @@
 import { assign } from 'lodash';
 
 //colors
-const red60 = '#CC3933';
-const orange50 = '#F56B03';
-const teal60 = '#0E8764';
-const green70 = '#026800';
-const blue50 = '#5792FF';
 
 const purple90 = '#F5EEFD';
 const purple80 = '#D8BBF6';
@@ -45,16 +40,19 @@ const baseLabelStyles = {
   strokeWidth: 0,
 };
 
-// *
-// * Strokes
-// *
+// style: {
+//         data: {
+//           fill: (d: any[]) => d.fill,
+//         },
+//         labels: baseLabelStyles,
+//       },
 
 const darkTheme = {
   area: assign(
     {
       style: {
         data: {
-          fill: blue50,
+          fill: primary,
         },
         labels: baseLabelStyles,
       },

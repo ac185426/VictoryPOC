@@ -1,25 +1,35 @@
 import Bar from '../Charts/Bar';
 import { Box, Card, CardContent, Button, Typography } from '@mui/material';
-import { useState } from 'react';
-import lightTheme from '../Themes/lightTheme';
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel, Background } from 'victory';
 import data from '../Data/data';
 import { CustomText } from '../Components/CustomText';
+import useCard from './useCard';
+import { useState } from 'react';
 import darkTheme from '../Themes/darkTheme';
+import lightTheme from '../Themes/lightTheme';
 
-const CardComponent = () => {
-  const [theme, setTheme] = useState(lightTheme);
-  const [lob, setLob] = useState('Light');
-  const [background, setBackground] = useState('#ffffff');
-  const themeHandler = () => {
-    if (theme === lightTheme) {
-      setTheme(darkTheme);
-      setLob('Dark');
-      setBackground('#2C2C2E');
+const CardComponent = ({ show }: any) => {
+  const { chartTheme, lob, background, cardTheme, themeHandler } = useCard();
+  const [showGrid, setShowGrid] = useState(true);
+  const hidden = () => {
+    if (showGrid === true) {
+      setShowGrid(!showGrid);
+      if (chartTheme === darkTheme) {
+        //visable dark grid
+        darkTheme.axis.style.grid.stroke = '#EBEBF54D';
+      } else {
+        //visable light grid
+        lightTheme.axis.style.grid.stroke = '#EBEBF599';
+      }
     } else {
-      setTheme(lightTheme);
-      setLob('Light');
-      setBackground('#ffffff');
+      setShowGrid(!showGrid);
+      if (chartTheme === darkTheme) {
+        //invisable dark grid
+        darkTheme.axis.style.grid.stroke = '#2C2C2E';
+      } else {
+        //invisable light grid
+        lightTheme.axis.style.grid.stroke = '#ffffff';
+      }
     }
   };
 
@@ -27,6 +37,7 @@ const CardComponent = () => {
     <Card sx={{ display: 'flex', flexDirection: 'row', backgroundColor: background }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
+          {/* Header & Subheader */}
           <Typography component="div" variant="h5">
             Victory POC
           </Typography>
@@ -34,40 +45,19 @@ const CardComponent = () => {
             {lob}
           </Typography>
         </CardContent>
-        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-          <Button
-            variant="outlined"
-            onClick={themeHandler}
-            sx={{
-              color: '#491668',
-              outlined: '#491668',
-              outlinedInherit: '#491668',
-              outlinedPrimary: '#491668',
-              outlinedSecondary: '#491668',
-            }}
-          >
+        <Box sx={{ display: 'block', alignItems: 'center', pl: 1, pb: 1 }}>
+          {/* Theme Buttons */}
+          <Button variant="outlined" onClick={themeHandler} sx={{ cardTheme }}>
             Change Theme
+          </Button>
+          <Button variant="outlined" onClick={hidden} sx={{ cardTheme }}>
+            Hide Grid
           </Button>
         </Box>
       </Box>
       <Box sx={{ color: '#EBEBF599' }}>
-        {/* <Bar /> */}
-        <VictoryChart domainPadding={50} theme={theme}>
-          <VictoryAxis
-            // tickValues specifies both the number of ticks and where
-            // they are placed on the axis
-            tickValues={[1, 2, 3, 4, 5]}
-            //tickFormat={['Quarter 1', 'Quarter 2', 'Quarter 3', 'Quarter 4']}
-            //tickLabelComponent={}
-          />
-          <VictoryAxis
-            dependentAxis
-            // tickFormat specifies how ticks should be displayed
-            tickFormat={(x) => `$${x}`}
-            //label={<Axis />}
-          />
-          <VictoryBar animate data={data} labelComponent={<CustomText />} />
-        </VictoryChart>
+        {/* Custom Bar */}
+        <Bar />
       </Box>
     </Card>
   );
