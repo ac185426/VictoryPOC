@@ -5,7 +5,7 @@ import darkTheme from '../Themes/darkTheme';
 import lightTheme from '../Themes/lightTheme';
 import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
 import data from '../Data/data';
-import { CustomText } from '../Components/CustomText';
+import { CustomText } from './CustomText';
 
 const CardComponent = () => {
   const { chartTheme, lob, background, themeHandler, LightStyles, DarkStyles } = useCard();
