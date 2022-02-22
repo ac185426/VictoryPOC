@@ -1,0 +1,27 @@
+React library POC asks:
+
+First part:
+    Victory Data Vis Library:
+        React Native & React ts
+            Ease of theming - alternating background colors?
+            Understanding what data/data types will fit best with this visualizations
+            Implement App shell with POC
+            MUI compatibility
+            Putting data vis inside a mui card
+            testing tool tips
+            types of charts: bar, line, doughnut/pie, scorecard charts + variants
+    
+
+Second part:
+Fullstory and A/B testing
+
+
+
+
+toggle grid lines
+accessability: asked:
+keyboard accessability, tabbing through different tooltips and what not
+alt labels
+different textures
+
+reach out to Abbey Davis via slack with checkpoints of data Vis
