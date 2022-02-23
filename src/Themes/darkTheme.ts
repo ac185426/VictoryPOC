@@ -66,6 +66,7 @@ const darkTheme = {
         stroke: '', //'#EBEBF54D',
         fill: 'none',
         pointerEvents: 'painted',
+        opacity: 0.5,
       },
       ticks: {
         stroke: '#EBEBF54D',

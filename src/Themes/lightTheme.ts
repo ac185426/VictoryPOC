@@ -66,9 +66,10 @@ const lightTheme = {
         padding: 30,
       },
       grid: {
-        stroke: '', //tertiary, //gridlines should be gray
+        stroke: '', //tertiary, gridlines should be gray
         fill: tertiary,
         pointerEvents: 'painted',
+        opacity: 0.5,
       },
       ticks: {
         stroke: 'black',

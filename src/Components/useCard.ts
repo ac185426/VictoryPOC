@@ -8,6 +8,8 @@ const useCard = () => {
   const [chartTheme, setChartTheme] = useState(lightTheme);
   const [lob, setLob] = useState('Light');
   const [background, setBackground] = useState('#ffffff');
+  const [textTheme, setTextTheme] = useState('black');
+  const [subTextTheme, setSubTextTheme] = useState('black');
   const LightStyles = styled(Button)<ButtonProps>(() => ({
     '&.MuiButton-root': {
       border: '1px solid rgba(73, 22, 104, 1)',
@@ -38,12 +40,17 @@ const useCard = () => {
       console.log('Dark Theme config: ', darkTheme);
       setLob('Dark');
       setBackground('#2C2C2E');
+      setTextTheme('white');
+      setSubTextTheme('rgba(255, 255, 255, 0.5)');
       return 'dark';
     } else {
       setChartTheme(lightTheme);
       console.log('Light Theme config: ', lightTheme);
       setLob('Light');
       setBackground('#ffffff');
+      setTextTheme('black');
+      setSubTextTheme('black');
+
       return 'light';
     }
   };
@@ -55,6 +62,8 @@ const useCard = () => {
     themeHandler,
     LightStyles,
     DarkStyles,
+    textTheme,
+    subTextTheme,
   };
 };
 

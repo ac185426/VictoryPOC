@@ -8,7 +8,16 @@ import data from '../Data/data';
 import { CustomText } from './CustomText';
 
 const CardComponent = () => {
-  const { chartTheme, lob, background, themeHandler, LightStyles, DarkStyles } = useCard();
+  const {
+    chartTheme,
+    lob,
+    background,
+    themeHandler,
+    LightStyles,
+    DarkStyles,
+    textTheme,
+    subTextTheme,
+  } = useCard();
 
   const [showGrid, setShowGrid] = useState(true);
 
@@ -41,10 +50,10 @@ const CardComponent = () => {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           {/* Header & Subheader */}
-          <Typography component="div" variant="h5">
+          <Typography component="div" variant="h5" sx={{ color: textTheme }}>
             Victory POC
           </Typography>
-          <Typography variant="subtitle1" color="text.secondary" component="div">
+          <Typography variant="subtitle1" sx={{ color: subTextTheme }}>
             {lob}
           </Typography>
         </CardContent>
