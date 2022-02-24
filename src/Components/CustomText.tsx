@@ -1,7 +1,4 @@
-import { Typography, useTheme } from '@mui/material';
-import React, { Component } from 'react';
-import { VictoryLabel } from 'victory';
-import type { VictoryBarProps, VictoryBar } from 'victory';
+import { useTheme } from '@mui/material';
 
 export const CustomText = (props: any) => {
   const theme = useTheme();
