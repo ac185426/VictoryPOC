@@ -17,7 +17,20 @@ const primary = '#ffffff';
 const secondary = '#EBEBF599';
 const tertiary = '#EBEBF54D';
 
-const sansSerif = "'Helvetica Neue', 'Helvetica', sans-serif";
+//mui typography
+const fontFamily = [
+  '-apple-system',
+  'BlinkMacSystemFont',
+  '"Segoe UI"',
+  'Roboto',
+  '"Helvetica Neue"',
+  'Arial',
+  'sans-serif',
+  '"Apple Color Emoji"',
+  '"Segoe UI Emoji"',
+  '"Segoe UI Symbol"',
+].join(',');
+
 const letterSpacing = 'normal';
 const fontSize = 12;
 // *
@@ -27,11 +40,12 @@ const padding = 8;
 const baseProps = {
   padding: 50,
 };
+
 // *
 // * Labels
 // *
 const baseLabelStyles = {
-  fontFamily: sansSerif,
+  fontFamily: fontFamily,
   fontSize,
   letterSpacing,
   padding,
@@ -95,6 +109,18 @@ const darkTheme = {
     baseProps,
   ),
   chart: baseProps,
+  tooltip: {
+    style: assign({}, baseLabelStyles, { padding: 0, pointerEvents: 'none' }),
+    flyoutStyle: {
+      stroke: '#f0f0f0',
+      strokeWidth: 1,
+      fill: 'black',
+      pointerEvents: 'none',
+    },
+    flyoutPadding: 5,
+    cornerRadius: 3,
+    pointerLength: 10,
+  },
 };
 
 export default darkTheme;
