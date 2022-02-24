@@ -3,7 +3,7 @@ import useCard from './useCard';
 import { useState, useEffect } from 'react';
 import darkTheme from '../Themes/darkTheme';
 import lightTheme from '../Themes/lightTheme';
-import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTooltip } from 'victory';
 import data from '../Data/data';
 import { CustomText } from './CustomText';
 
@@ -101,12 +101,44 @@ const CardComponent = () => {
           <VictoryBar
             animate
             data={data}
-            labelComponent={<CustomText />}
+            labelComponent={<VictoryTooltip />}
+            //labelComponent={<VictoryTooltip />}
             style={{
               data: {
                 fill: ({ datum }) => datum.fill,
               },
             }}
+            events={[
+              {
+                target: 'data',
+                eventHandlers: {
+                  onMouseOver: () => {
+                    return [
+                      {
+                        target: 'data',
+                        mutation: () => ({ style: { fill: '#1D052C' } }),
+                      },
+                      {
+                        target: 'labels',
+                        mutation: () => ({ active: true }),
+                      },
+                    ];
+                  },
+                  onMouseOut: () => {
+                    return [
+                      {
+                        target: 'data',
+                        mutation: () => {},
+                      },
+                      {
+                        target: 'labels',
+                        mutation: () => ({ active: false }),
+                      },
+                    ];
+                  },
+                },
+              },
+            ]}
           />
         </VictoryChart>
       </Box>
