@@ -95,7 +95,7 @@ const CardComponent = () => {
         <VictoryChart
           domainPadding={50}
           theme={chartTheme}
-          containerComponent={<VictoryVoronoiContainer />}
+          //containerComponent={<VictoryVoronoiContainer/>
         >
           <VictoryAxis
           // tickValues specifies both the number of ticks and where
@@ -119,20 +119,28 @@ const CardComponent = () => {
                 fill: ({ datum }) => datum.fill,
               },
             }}
-            // events={[
-            //   {
-            //     target: 'labels',
-            //     eventHandlers: {
-            //       on: () => {
-            //         return [
-            //           {
-            //             target: 'labels',
-            //             mutation: () => ({ style: { fill: '#1D052C' } }),
-            //           },
+            events={[
+              {
+                target: 'data',
+                eventHandlers: {
+                  //remove default label events
+                  onMouseOver: () => {},
+                  onMouseOut: () => {},
 
-            //         ];
-            //       },
-            // ]}
+                  //add toggle for tooltip
+                  onClick: () => {
+                    return [
+                      {
+                        target: 'labels',
+                        mutation: (props) => {
+                          return props.active ? { active: false } : { active: true };
+                        },
+                      },
+                    ];
+                  },
+                },
+              },
+            ]}
           />
         </VictoryChart>
       </Box>
