@@ -3,7 +3,13 @@ import useCard from './useCard';
 import { useState, useEffect } from 'react';
 import darkTheme from '../Themes/darkTheme';
 import lightTheme from '../Themes/lightTheme';
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTooltip } from 'victory';
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryAxis,
+  VictoryTooltip,
+  VictoryVoronoiContainer,
+} from 'victory';
 import data from '../Data/data';
 import { CustomText } from './CustomText';
 
@@ -86,12 +92,16 @@ const CardComponent = () => {
         </Box>
       </Box>
       <Box sx={{ color: '#EBEBF599' }}>
-        <VictoryChart domainPadding={50} theme={chartTheme}>
+        <VictoryChart
+          domainPadding={50}
+          theme={chartTheme}
+          containerComponent={<VictoryVoronoiContainer />}
+        >
           <VictoryAxis
-            // tickValues specifies both the number of ticks and where
-            // they are placed on the axis
-            tickValues={[1, 2, 3, 4, 5]}
-            tickFormat={['Q1', 'Q2', 'Q3', 'Q4', 'Q5']}
+          // tickValues specifies both the number of ticks and where
+          // they are placed on the axis
+          //tickValues={data.label}
+          //tickFormat={({ datum }) => datum.tick}
           />
           <VictoryAxis
             dependentAxis
@@ -101,44 +111,28 @@ const CardComponent = () => {
           <VictoryBar
             animate
             data={data}
+            labels={({ datum }) => datum.label}
             labelComponent={<VictoryTooltip />}
-            //labelComponent={<VictoryTooltip />}
+            //labelComponent={<CustomText />}
             style={{
               data: {
                 fill: ({ datum }) => datum.fill,
               },
             }}
-            events={[
-              {
-                target: 'data',
-                eventHandlers: {
-                  onMouseOver: () => {
-                    return [
-                      {
-                        target: 'data',
-                        mutation: () => ({ style: { fill: '#1D052C' } }),
-                      },
-                      {
-                        target: 'labels',
-                        mutation: () => ({ active: true }),
-                      },
-                    ];
-                  },
-                  onMouseOut: () => {
-                    return [
-                      {
-                        target: 'data',
-                        mutation: () => {},
-                      },
-                      {
-                        target: 'labels',
-                        mutation: () => ({ active: false }),
-                      },
-                    ];
-                  },
-                },
-              },
-            ]}
+            // events={[
+            //   {
+            //     target: 'labels',
+            //     eventHandlers: {
+            //       on: () => {
+            //         return [
+            //           {
+            //             target: 'labels',
+            //             mutation: () => ({ style: { fill: '#1D052C' } }),
+            //           },
+
+            //         ];
+            //       },
+            // ]}
           />
         </VictoryChart>
       </Box>

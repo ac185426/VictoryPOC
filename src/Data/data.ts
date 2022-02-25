@@ -7,11 +7,35 @@
 // ];
 
 const data = [
-  { x: 1, y: 3, label: 'Alpha', fill: '#D8BBF6' },
-  { x: 2, y: 4, label: 'Bravo', fill: '#C797F1' },
-  { x: 3, y: 6, label: 'Charlie', fill: '#B56CEB' },
-  { x: 4, y: 3, label: 'Delta', fill: '#A744E5' },
-  { x: 5, y: 7, label: 'Echo', fill: '#8D32C3' },
+  {
+    x: 'Alpha',
+    y: 3,
+    fill: '#D8BBF6',
+    label: 'This is the info on this data point',
+  },
+  {
+    x: 'Bravo',
+    y: 4,
+    fill: '#C797F1',
+    label: 'This is the info on this data point',
+  },
+  {
+    x: 'Charlie',
+    y: 6,
+    fill: '#B56CEB',
+    label: 'This is the info on this data point',
+  },
+  {
+    x: 'Delta',
+    y: 3,
+    fill: '#A744E5',
+    label: 'This is the info on this data point',
+  },
+  {
+    x: 'Echo',
+    y: 7,
+    fill: '#8D32C3',
+    label: 'This is the info on this data point',
+  },
 ];
-
 export default data;
