@@ -122,6 +122,7 @@ const CardComponent = () => {
             events={[
               {
                 target: 'data',
+                eventKey: 'esc',
                 eventHandlers: {
                   //remove default label events
                   onMouseOver: () => {},
@@ -134,6 +135,17 @@ const CardComponent = () => {
                         target: 'labels',
                         mutation: (props) => {
                           return props.active ? { active: false } : { active: true };
+                        },
+                      },
+                    ];
+                  },
+                  //event for escape key to disable tooltip
+                  onPress: () => {
+                    return [
+                      {
+                        target: 'labels',
+                        mutation: (props) => {
+                          return props.active ? { active: false } : { active: false };
                         },
                       },
                     ];
