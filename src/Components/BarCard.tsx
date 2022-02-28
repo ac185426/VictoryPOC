@@ -10,9 +10,11 @@ import {
   VictoryTooltip,
   VictoryVoronoiContainer,
   Bar,
+  VictoryLabel,
 } from 'victory';
 import data from '../Data/data';
 import { CustomText } from './CustomText';
+import { VictoryAccessibleGroup } from 'victory-core';
 
 const CardComponent = () => {
   const {
@@ -93,61 +95,63 @@ const CardComponent = () => {
         </Box>
       </Box>
       <Box sx={{ color: '#EBEBF599' }}>
-        <VictoryChart
-          domainPadding={50}
-          theme={chartTheme}
-          //containerComponent={<VictoryVoronoiContainer/>
-        >
-          <VictoryAxis
-          // tickValues specifies both the number of ticks and where
-          // they are placed on the axis
-          //tickValues={data.label}
-          //tickFormat={({ datum }) => datum.tick}
-          />
-          <VictoryAxis
-            dependentAxis
-            // tickFormat specifies how ticks should be displayed
-            tickFormat={(x) => `$${x}`}
-          />
-          <VictoryBar
-            animate
-            data={data}
-            labels={({ datum }) => datum.label}
-            labelComponent={<VictoryTooltip />}
-            //labelComponent={<CustomText />}
+        <VictoryAccessibleGroup aria-label="POC of the Victory Chart Library">
+          <VictoryChart domainPadding={50} theme={chartTheme}>
+            <VictoryLabel text="Profits per Company" textAnchor="middle" x={225} y={30} />
+            <VictoryAxis
+            // tickValues specifies both the number of ticks and where
+            // they are placed on the axis
+            //tickValues={data.label}
+            //tickFormat={({ datum }) => datum.tick}
+            />
+            <VictoryAxis
+              dependentAxis
+              // tickFormat specifies how ticks should be displayed
+              tickFormat={(x) => `$${x}`}
+            />
+            <VictoryBar
+              animate
+              data={data}
+              labels={({ datum }) => datum.label}
+              labelComponent={<VictoryTooltip />}
+              //labelComponent={<CustomText />}
 
-            //accessability which allows tab key through all data bars
-            dataComponent={<Bar tabIndex={0} />}
-            style={{
-              data: {
-                fill: ({ datum }) => datum.fill,
-              },
-            }}
-            events={[
-              {
-                target: 'data',
-                //eventKey: 'esc',
-                eventHandlers: {
-                  //remove default label events
-                  onMouseOver: () => {},
-                  onMouseOut: () => {},
-
-                  //add toggle for tooltip
-                  onClick: () => {
-                    return [
-                      {
-                        target: 'labels',
-                        mutation: (props) => {
-                          return props.active ? { active: false } : { active: true };
-                        },
-                      },
-                    ];
-                  },
+              //accessability which allows tab key through all data bars
+              dataComponent={<Bar tabIndex={0} />}
+              style={{
+                data: {
+                  fill: ({ datum }) => datum.fill,
                 },
-              },
-            ]}
-          />
-        </VictoryChart>
+              }}
+              // events={[
+              //   {
+              //     target: 'data',
+              //     //eventKey: 'esc',
+              //     eventHandlers: {
+              //       //remove default label events
+              //       //onMouseOver: () => {},
+              //       //onMouseOut: () => {},
+
+              //       //add toggle for tooltip
+              //       onClick: () => {
+              //         return [
+              //           {
+              //             //need to add logic that is a different data bar is clicked then the new bar will be active and the other will inactive
+              //             target: 'labels',
+              //             mutation: (props) => {
+              //               return props.active ? { active: false } : { active: true };
+              //             },
+              //           },
+              //         ];
+              //       },
+              //     },
+              //   },
+              // ]}
+            />
+          </VictoryChart>
+          {/* doesnt show up */}
+          <VictoryLabel text="Alpha makes up $3, Bravo makes up $4, Charlie makes up $6, Delta makes up $3, Echo makes up $7." />
+        </VictoryAccessibleGroup>
       </Box>
     </Card>
   );
