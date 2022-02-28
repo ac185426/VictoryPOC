@@ -9,6 +9,7 @@ import {
   VictoryAxis,
   VictoryTooltip,
   VictoryVoronoiContainer,
+  Bar,
 } from 'victory';
 import data from '../Data/data';
 import { CustomText } from './CustomText';
@@ -114,6 +115,9 @@ const CardComponent = () => {
             labels={({ datum }) => datum.label}
             labelComponent={<VictoryTooltip />}
             //labelComponent={<CustomText />}
+
+            //accessability which allows tab key through all data bars
+            dataComponent={<Bar tabIndex={0} />}
             style={{
               data: {
                 fill: ({ datum }) => datum.fill,
@@ -122,7 +126,7 @@ const CardComponent = () => {
             events={[
               {
                 target: 'data',
-                eventKey: 'esc',
+                //eventKey: 'esc',
                 eventHandlers: {
                   //remove default label events
                   onMouseOver: () => {},
@@ -135,17 +139,6 @@ const CardComponent = () => {
                         target: 'labels',
                         mutation: (props) => {
                           return props.active ? { active: false } : { active: true };
-                        },
-                      },
-                    ];
-                  },
-                  //event for escape key to disable tooltip
-                  onPress: () => {
-                    return [
-                      {
-                        target: 'labels',
-                        mutation: (props) => {
-                          return props.active ? { active: false } : { active: false };
                         },
                       },
                     ];
