@@ -97,7 +97,13 @@ const CardComponent = () => {
       <Box sx={{ color: '#EBEBF599' }}>
         <VictoryAccessibleGroup aria-label="POC of the Victory Chart Library">
           <VictoryChart domainPadding={50} theme={chartTheme}>
-            <VictoryLabel text="Profits per Company" textAnchor="middle" x={225} y={30} />
+            <VictoryLabel
+              text="Profit per Company"
+              textAnchor="middle"
+              x={225}
+              y={30}
+              style={[{ fill: textTheme, fontSize: 20 }]}
+            />
             <VictoryAxis
             // tickValues specifies both the number of ticks and where
             // they are placed on the axis
@@ -117,6 +123,7 @@ const CardComponent = () => {
               //labelComponent={<CustomText />}
 
               //accessability which allows tab key through all data bars
+
               dataComponent={<Bar tabIndex={0} />}
               style={{
                 data: {
@@ -149,8 +156,6 @@ const CardComponent = () => {
               // ]}
             />
           </VictoryChart>
-          {/* doesnt show up */}
-          <VictoryLabel text="Alpha makes up $3, Bravo makes up $4, Charlie makes up $6, Delta makes up $3, Echo makes up $7." />
         </VictoryAccessibleGroup>
       </Box>
     </Card>
