@@ -11,6 +11,7 @@ import {
   VictoryVoronoiContainer,
   Bar,
   VictoryLabel,
+  VictoryPortal,
 } from 'victory';
 import data from '../Data/data';
 import { CustomText } from './CustomText';
@@ -154,6 +155,15 @@ const CardComponent = () => {
               //     },
               //   },
               // ]}
+            />
+            <VictoryLabel
+              text="description of chart"
+              textAnchor="middle"
+              x={225}
+              y={0}
+              dx={0}
+              dy={0}
+              style={[{ fill: textTheme, fontSize: 20 }]}
             />
           </VictoryChart>
         </VictoryAccessibleGroup>
