@@ -32,7 +32,7 @@ const fontFamily = [
 ].join(',');
 
 const letterSpacing = 'normal';
-const fontSize = 12;
+const fontSize = 14;
 // *
 // * Layout
 // *
