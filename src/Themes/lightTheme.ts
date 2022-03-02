@@ -38,7 +38,7 @@ const fontSize = 14;
 // *
 // * Layout
 // *
-const padding = 8;
+const padding = 0;
 const baseProps = {
   padding: 50,
 };
@@ -57,17 +57,17 @@ const baseLabelStyles = {
 };
 
 const lightTheme = {
-  area: assign(
-    {
-      style: {
-        data: {
-          fill: 'teal60',
-        },
-        labels: baseLabelStyles,
-      },
-    },
-    baseProps,
-  ),
+  // area: assign(
+  //   {
+  //     style: {
+  //       data: {
+  //         fill: 'teal60',
+  //       },
+  //       labels: baseLabelStyles,
+  //     },
+  //   },
+  //   baseProps,
+  // ),
   axis: assign({
     style: {
       axis: {
@@ -76,7 +76,8 @@ const lightTheme = {
       },
       axisLabels: {
         fontSize: 20,
-        padding: 30,
+        padding: 70,
+        fontfamily: fontFamily,
       },
       grid: {
         stroke: '', //tertiary, gridlines should be gray
@@ -92,6 +93,7 @@ const lightTheme = {
       tickLabels: {
         fontSize: 15,
         padding: 5,
+        fontfamily: fontFamily,
       },
     },
   }),
@@ -102,7 +104,7 @@ const lightTheme = {
           fill: purple80,
           padding,
           stroke: purple20,
-          strokeWidth: 2,
+          strokeWidth: 0,
         },
         labels: baseLabelStyles,
       },

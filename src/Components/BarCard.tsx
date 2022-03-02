@@ -56,7 +56,7 @@ const CardComponent = () => {
   };
 
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'row', backgroundColor: background }}>
+    <Card sx={{ display: 'flex', flexDirection: 'row', backgroundColor: background, height: 500 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           {/* Header & Subheader */}
@@ -65,6 +65,11 @@ const CardComponent = () => {
           </Typography>
           <Typography variant="subtitle1" sx={{ color: subTextTheme }}>
             {lob}
+          </Typography>
+          <Typography sx={{ color: textTheme, maxWidth: 400, mt: 6 }}>
+            Chart displays the average cost customers pay when eating at these resturants. At
+            Chipotle customers average $5, at Mad Mex customers average $4, at Starbucks customers
+            average $6, at Brusters customers average $3, and at Jinya customers average $7.
           </Typography>
         </CardContent>
         <Box sx={{ display: 'block', alignItems: 'center', pl: 1, pb: 1 }}>
@@ -95,9 +100,9 @@ const CardComponent = () => {
           )}
         </Box>
       </Box>
-      <Box sx={{ color: '#EBEBF599' }}>
+      <Box sx={{ color: '#EBEBF599', height: 300, mt: 6 }}>
         <VictoryAccessibleGroup aria-label="POC of the Victory Chart Library">
-          <VictoryChart domainPadding={50} theme={chartTheme}>
+          <VictoryChart domainPadding={30} theme={chartTheme}>
             <VictoryLabel
               text="Profit per Company"
               textAnchor="middle"
@@ -105,14 +110,10 @@ const CardComponent = () => {
               y={30}
               style={[{ fill: textTheme, fontSize: 20 }]}
             />
-            <VictoryAxis
-            // tickValues specifies both the number of ticks and where
-            // they are placed on the axis
-            //tickValues={data.label}
-            //tickFormat={({ datum }) => datum.tick}
-            />
+            <VictoryAxis label="Companies" />
             <VictoryAxis
               dependentAxis
+              label="Average Customer Cost"
               // tickFormat specifies how ticks should be displayed
               tickFormat={(x) => `$${x}`}
             />
@@ -122,10 +123,9 @@ const CardComponent = () => {
               labels={({ datum }) => datum.label}
               labelComponent={<VictoryTooltip />}
               //labelComponent={<CustomText />}
-
               //accessability which allows tab key through all data bars
 
-              dataComponent={<Bar tabIndex={0} />}
+              dataComponent={<Bar tabIndex={0} ariaLabel={({ datum }) => `${datum.x}`} />}
               style={{
                 data: {
                   fill: ({ datum }) => datum.fill,
@@ -137,8 +137,8 @@ const CardComponent = () => {
               //     //eventKey: 'esc',
               //     eventHandlers: {
               //       //remove default label events
-              //       //onMouseOver: () => {},
-              //       //onMouseOut: () => {},
+              //       onMouseOver: () => {},
+              //       onMouseOut: () => {},
 
               //       //add toggle for tooltip
               //       onClick: () => {
@@ -157,10 +157,10 @@ const CardComponent = () => {
               // ]}
             />
             <VictoryLabel
-              text="description of chart"
+              text=""
               textAnchor="middle"
               x={225}
-              y={0}
+              y={300}
               dx={0}
               dy={0}
               style={[{ fill: textTheme, fontSize: 20 }]}

@@ -55,17 +55,17 @@ const baseLabelStyles = {
 };
 
 const darkTheme = {
-  area: assign(
-    {
-      style: {
-        data: {
-          fill: primary,
-        },
-        labels: baseLabelStyles,
-      },
-    },
-    baseProps,
-  ),
+  // area: assign(
+  //   {
+  //     style: {
+  //       data: {
+  //         fill: primary,
+  //       },
+  //       labels: baseLabelStyles,
+  //     },
+  //   },
+  //   baseProps,
+  // ),
   axis: assign({
     style: {
       axis: {
@@ -74,7 +74,8 @@ const darkTheme = {
       },
       axisLabels: {
         fontSize: 20,
-        padding: 30,
+        padding: 50,
+        fontfamily: fontFamily,
       },
       grid: {
         stroke: '', //'#EBEBF54D',
@@ -91,6 +92,7 @@ const darkTheme = {
         fontSize: 15,
         padding: 5,
         fill: 'white',
+        fontfamily: fontFamily,
       },
     },
   }),
@@ -101,7 +103,7 @@ const darkTheme = {
           fill: purple90,
           padding,
           stroke: purple70,
-          strokeWidth: 2,
+          strokeWidth: 0,
         },
         labels: baseLabelStyles,
       },

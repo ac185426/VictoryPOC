@@ -8,31 +8,31 @@
 
 const data = [
   {
-    x: 'Alpha',
-    y: 3,
+    x: 'Chipotle',
+    y: 5,
     fill: '#D8BBF6',
     label: 'This is the info on this data point',
   },
   {
-    x: 'Bravo',
+    x: 'Mad Mex',
     y: 4,
     fill: '#C797F1',
     label: 'This is the info on this data point',
   },
   {
-    x: 'Charlie',
+    x: 'Starbucks',
     y: 6,
     fill: '#B56CEB',
     label: 'This is the info on this data point',
   },
   {
-    x: 'Delta',
+    x: 'Brusters',
     y: 3,
     fill: '#A744E5',
     label: 'This is the info on this data point',
   },
   {
-    x: 'Echo',
+    x: 'Jinya',
     y: 7,
     fill: '#8D32C3',
     label: 'This is the info on this data point',
