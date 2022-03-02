@@ -12,6 +12,7 @@ import {
   Bar,
   VictoryLabel,
   VictoryPortal,
+  VictoryContainer,
 } from 'victory';
 import data from '../Data/data';
 import { CustomText } from './CustomText';
@@ -66,7 +67,7 @@ const CardComponent = () => {
           <Typography variant="subtitle1" sx={{ color: subTextTheme }}>
             {lob}
           </Typography>
-          <Typography sx={{ color: textTheme, maxWidth: 400, mt: 6 }}>
+          <Typography sx={{ color: textTheme, maxWidth: 400, mt: 14 }}>
             Chart displays the average cost customers pay when eating at these resturants. At
             Chipotle customers average $5, at Mad Mex customers average $4, at Starbucks customers
             average $6, at Brusters customers average $3, and at Jinya customers average $7.
@@ -100,20 +101,32 @@ const CardComponent = () => {
           )}
         </Box>
       </Box>
-      <Box sx={{ color: '#EBEBF599', height: 300, mt: 6 }}>
+      <Box sx={{ color: '#EBEBF599', height: 400, width: 800, mt: 6 }}>
         <VictoryAccessibleGroup aria-label="POC of the Victory Chart Library">
-          <VictoryChart domainPadding={30} theme={chartTheme}>
+          <VictoryChart
+            domainPadding={30}
+            theme={chartTheme}
+            padding={{ left: 50, top: 45, bottom: 60, right: 0 }}
+          >
             <VictoryLabel
               text="Profit per Company"
               textAnchor="middle"
-              x={225}
+              x={260}
               y={30}
               style={[{ fill: textTheme, fontSize: 20 }]}
             />
-            <VictoryAxis label="Companies" />
+            <VictoryAxis
+              label="Restaurants"
+              axisLabelComponent={
+                <VictoryLabel dy={20} style={[{ fill: textTheme, fontSize: 16 }]} />
+              }
+            />
             <VictoryAxis
               dependentAxis
               label="Average Customer Cost"
+              axisLabelComponent={
+                <VictoryLabel dy={-10} style={[{ fill: textTheme, fontSize: 16 }]} />
+              }
               // tickFormat specifies how ticks should be displayed
               tickFormat={(x) => `$${x}`}
             />
