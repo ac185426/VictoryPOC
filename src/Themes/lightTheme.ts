@@ -16,6 +16,8 @@ const primary = '#ffffff';
 const secondary = '#EBEBF599';
 const tertiary = '#EBEBF54D';
 
+const colors = [purple40, 'white'];
+
 // background: #FFFFFF80;
 // background: #4D4D4D;
 
@@ -124,6 +126,21 @@ const lightTheme = {
     cornerRadius: 3,
     pointerLength: 10,
   },
+  pie: assign(
+    {
+      colorScale: colors,
+      style: {
+        data: {
+          //fill: 'red',
+          padding,
+          stroke: 'transparent',
+          strokeWidth: 1,
+        },
+        labels: assign({}, baseLabelStyles, { padding: 20 }),
+      },
+    },
+    baseProps,
+  ),
 };
 
 export default lightTheme;

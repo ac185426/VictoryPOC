@@ -17,6 +17,8 @@ const primary = '#ffffff';
 const secondary = '#EBEBF599';
 const tertiary = '#EBEBF54D';
 
+const colors = [purple80, '#2C2C2E'];
+
 //mui typography
 const fontFamily = [
   '-apple-system',
@@ -123,6 +125,21 @@ const darkTheme = {
     cornerRadius: 3,
     pointerLength: 10,
   },
+  pie: assign(
+    {
+      colorScale: colors,
+      style: {
+        data: {
+          //fill: 'red',
+          padding,
+          stroke: 'transparent',
+          strokeWidth: 1,
+        },
+        labels: assign({}, baseLabelStyles, { padding: 20 }),
+      },
+    },
+    baseProps,
+  ),
 };
 
 export default darkTheme;
