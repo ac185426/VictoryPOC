@@ -3,17 +3,8 @@ import useCard from './useCard';
 import { useState, useEffect } from 'react';
 import darkTheme from '../Themes/darkTheme';
 import lightTheme from '../Themes/lightTheme';
-import {
-  VictoryBar,
-  VictoryChart,
-  VictoryAxis,
-  VictoryTooltip,
-  Bar,
-  VictoryLabel,
-  VictoryContainer,
-} from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTooltip, Bar, VictoryLabel } from 'victory';
 import data from '../Data/data';
-//import { CustomText } from './CustomText';
 import { VictoryAccessibleGroup } from 'victory-core';
 
 const CardComponent = () => {
@@ -142,31 +133,31 @@ const CardComponent = () => {
                   fill: ({ datum }) => datum.fill,
                 },
               }}
-              events={[
-                {
-                  childName: ['', '', '', '', ''],
-                  target: 'data',
-                  //eventKey: 'esc',
-                  eventHandlers: {
-                    //remove default label events
-                    //onMouseOver: () => {},
-                    //onMouseOut: () => {},
-
-                    //add toggle for tooltip
-                    onfocus: () => {
-                      return [
-                        {
-                          //need to add logic that is a different data bar is clicked then the new bar will be active and the other will inactive
-                          target: 'data',
-                          mutation: (props) => {
-                            return;
-                          },
-                        },
-                      ];
-                    },
-                  },
-                },
-              ]}
+              // events={[
+              //   {
+              //     target: 'data',
+              //     //eventKey: 'esc',
+              //     eventHandlers: {
+              //       //onFocus: () => activate,
+              //       //onBlur: () => deactivate,
+              //       //remove default label events
+              //       //onMouseOver: () => {},
+              //       //onMouseOut: () => {},
+              //       //add toggle for tooltip
+              //       // onfocus: () => {
+              //       //   return [
+              //       //     {
+              //       //       //need to add logic that is a different data bar is clicked then the new bar will be active and the other will inactive
+              //       //       target: 'data',
+              //       //       mutation: (props) => {
+              //       //         return;
+              //       //       },
+              //       //     },
+              //       //   ];
+              //       // },
+              //     },
+              //   },
+              // ]}
             />
           </VictoryChart>
         </VictoryAccessibleGroup>
