@@ -8,14 +8,12 @@ import {
   VictoryChart,
   VictoryAxis,
   VictoryTooltip,
-  VictoryVoronoiContainer,
   Bar,
   VictoryLabel,
-  VictoryPortal,
   VictoryContainer,
 } from 'victory';
 import data from '../Data/data';
-import { CustomText } from './CustomText';
+//import { CustomText } from './CustomText';
 import { VictoryAccessibleGroup } from 'victory-core';
 
 const CardComponent = () => {
@@ -112,7 +110,7 @@ const CardComponent = () => {
               text="Profit per Company"
               textAnchor="middle"
               x={260}
-              y={30}
+              y={20}
               style={[{ fill: textTheme, fontSize: 20 }]}
             />
             <VictoryAxis
@@ -144,39 +142,31 @@ const CardComponent = () => {
                   fill: ({ datum }) => datum.fill,
                 },
               }}
-              // events={[
-              //   {
-              //     target: 'data',
-              //     //eventKey: 'esc',
-              //     eventHandlers: {
-              //       //remove default label events
-              //       onMouseOver: () => {},
-              //       onMouseOut: () => {},
+              events={[
+                {
+                  childName: ['', '', '', '', ''],
+                  target: 'data',
+                  //eventKey: 'esc',
+                  eventHandlers: {
+                    //remove default label events
+                    //onMouseOver: () => {},
+                    //onMouseOut: () => {},
 
-              //       //add toggle for tooltip
-              //       onClick: () => {
-              //         return [
-              //           {
-              //             //need to add logic that is a different data bar is clicked then the new bar will be active and the other will inactive
-              //             target: 'labels',
-              //             mutation: (props) => {
-              //               return props.active ? { active: false } : { active: true };
-              //             },
-              //           },
-              //         ];
-              //       },
-              //     },
-              //   },
-              // ]}
-            />
-            <VictoryLabel
-              text=""
-              textAnchor="middle"
-              x={225}
-              y={300}
-              dx={0}
-              dy={0}
-              style={[{ fill: textTheme, fontSize: 20 }]}
+                    //add toggle for tooltip
+                    onfocus: () => {
+                      return [
+                        {
+                          //need to add logic that is a different data bar is clicked then the new bar will be active and the other will inactive
+                          target: 'data',
+                          mutation: (props) => {
+                            return;
+                          },
+                        },
+                      ];
+                    },
+                  },
+                },
+              ]}
             />
           </VictoryChart>
         </VictoryAccessibleGroup>
