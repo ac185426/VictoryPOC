@@ -8,34 +8,39 @@
 
 const data = [
   {
-    x: 'Chipotle',
-    y: 5,
+    restaurants: 'Chipotle',
+    cost: 5,
     fill: '#D8BBF6',
     label: 'This is the info on this data point',
+    symbol: { type: 'circle', fill: '#D8BBF6' },
   },
   {
-    x: 'Mad Mex',
-    y: 4,
+    restaurants: 'Mad Mex',
+    cost: 4,
     fill: '#C797F1',
     label: 'This is the info on this data point',
+    symbol: { type: 'circle', fill: '#C797F1' },
   },
   {
-    x: 'Starbucks',
-    y: 6,
+    restaurants: 'Starbucks',
+    cost: 6,
     fill: '#B56CEB',
     label: 'This is the info on this data point',
+    symbol: { type: 'circle', fill: '#B56CEB' },
   },
   {
-    x: 'Brusters',
-    y: 3,
+    restaurants: 'Brusters',
+    cost: 3,
     fill: '#A744E5',
     label: 'This is the info on this data point',
+    symbol: { type: 'circle', fill: '#A744E5' },
   },
   {
-    x: 'Jinya',
-    y: 7,
+    restaurants: 'Jinya',
+    cost: 7,
     fill: '#8D32C3',
     label: 'This is the info on this data point',
+    symbol: { type: 'circle', fill: '#8D32C3' },
   },
 ];
 export default data;
