@@ -3,7 +3,15 @@ import useCard from './useCard';
 import { useState, useEffect } from 'react';
 import darkTheme from '../Themes/darkTheme';
 import lightTheme from '../Themes/lightTheme';
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTooltip, Bar, VictoryLabel } from 'victory';
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryAxis,
+  VictoryTooltip,
+  Bar,
+  VictoryLabel,
+  VictoryLegend,
+} from 'victory';
 import data from '../Data/data';
 import { VictoryAccessibleGroup } from 'victory-core';
 
@@ -46,7 +54,14 @@ const CardComponent = () => {
   };
 
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'row', backgroundColor: background, height: 500 }}>
+    <Card
+      sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        backgroundColor: background,
+        height: 500,
+      }}
+    >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           {/* Header & Subheader */}
@@ -119,14 +134,28 @@ const CardComponent = () => {
               // tickFormat specifies how ticks should be displayed
               tickFormat={(x) => `$${x}`}
             />
+
+            <VictoryLegend
+              x={260}
+              y={20}
+              gutter={20}
+              orientation="horizontal"
+              itemsPerRow={5}
+              data={[
+                { name: 'Chipotle', symbol: { type: 'circle', fill: '#D8BBF6' } },
+                { name: 'Mad Mex', symbol: { type: 'circle', fill: '#C797F1' } },
+                { name: 'Starbucks', symbol: { type: 'circle', fill: '#B56CEB' } },
+                { name: 'Brusters', symbol: { type: 'circle', fill: '#A744E5' } },
+                { name: 'Jinya', symbol: { type: 'circle', fill: '#8D32C3' } },
+              ]}
+            />
+
             <VictoryBar
               animate
               data={data}
               labels={({ datum }) => datum.label}
               labelComponent={<VictoryTooltip />}
-              //labelComponent={<CustomText />}
               //accessability which allows tab key through all data bars
-
               dataComponent={<Bar tabIndex={0} ariaLabel={({ datum }) => `${datum.x}`} />}
               style={{
                 data: {
