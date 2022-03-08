@@ -28,6 +28,8 @@ const CardComponent = () => {
   } = useCard();
 
   const [showGrid, setShowGrid] = useState(true);
+  const [angle, setAngle] = useState(0);
+  const [axisLabel, setAxisLabel] = useState(20);
 
   useEffect(() => {
     const updateGrid = () => {
@@ -51,6 +53,16 @@ const CardComponent = () => {
 
   const hideGrid = () => {
     setShowGrid(!showGrid);
+  };
+
+  const legendAngle = () => {
+    if (angle === 0) {
+      setAngle(25);
+      setAxisLabel(30);
+    } else {
+      setAngle(0);
+      setAxisLabel(20);
+    }
   };
 
   return (
@@ -90,6 +102,13 @@ const CardComponent = () => {
               <LightStyles variant="outlined" onClick={hideGrid} sx={{ ml: 1, minWidth: '10em' }}>
                 {showGrid ? 'Show Grid' : 'Hide Grid'}
               </LightStyles>
+              <LightStyles
+                variant="outlined"
+                onClick={legendAngle}
+                sx={{ ml: 1, minWidth: '10em' }}
+              >
+                Change Label Angle
+              </LightStyles>
             </div>
           )}
 
@@ -101,16 +120,19 @@ const CardComponent = () => {
               <DarkStyles variant="outlined" onClick={hideGrid} sx={{ ml: 1, minWidth: '10em' }}>
                 {showGrid ? 'Show Grid' : 'Hide Grid'}
               </DarkStyles>
+              <DarkStyles variant="outlined" onClick={legendAngle} sx={{ ml: 1, minWidth: '10em' }}>
+                Change Label Angle
+              </DarkStyles>
             </div>
           )}
         </Box>
       </Box>
-      <Box sx={{ color: '#EBEBF599', height: 400, width: 800, mt: 6 }}>
+      <Box sx={{ color: '#EBEBF599', height: 350, width: 800, mt: 6 }}>
         <VictoryAccessibleGroup aria-label="POC of the Victory Chart Library">
           <VictoryChart
             domainPadding={30}
             theme={chartTheme}
-            padding={{ left: 50, top: 45, bottom: 60, right: 0 }}
+            padding={{ left: 50, top: 45, bottom: 70, right: 0 }}
           >
             <VictoryLabel
               text="Profit per Company"
@@ -122,7 +144,7 @@ const CardComponent = () => {
             <VictoryAxis
               label="Restaurants"
               axisLabelComponent={
-                <VictoryLabel dy={20} style={[{ fill: textTheme, fontSize: 16 }]} />
+                <VictoryLabel dy={axisLabel} style={[{ fill: textTheme, fontSize: 16 }]} />
               }
               //removes default labels
               tickFormat={() => ''}
@@ -139,17 +161,18 @@ const CardComponent = () => {
 
             <VictoryLegend
               x={45}
-              y={255}
-              gutter={15}
+              y={245}
+              gutter={14}
               symbolSpacer={5}
               orientation="horizontal"
               itemsPerRow={5}
+              labelComponent={<VictoryLabel angle={angle} />}
               data={[
                 { name: 'Chipotle', symbol: { type: 'circle', fill: '#D8BBF6' } },
                 { name: 'Mad Mex', symbol: { type: 'circle', fill: '#C797F1' } },
                 { name: 'Starbucks', symbol: { type: 'circle', fill: '#B56CEB' } },
                 { name: 'Brusters', symbol: { type: 'circle', fill: '#A744E5' } },
-                { name: 'Jinya', symbol: { type: 'circle', fill: '#8D32C3' } },
+                { name: 'Dunkin Donuts', symbol: { type: 'circle', fill: '#8D32C3' } },
               ]}
             />
 

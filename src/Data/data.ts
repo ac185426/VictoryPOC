@@ -36,7 +36,7 @@ const data = [
     symbol: { type: 'circle', fill: '#A744E5' },
   },
   {
-    restaurants: 'Jinya',
+    restaurants: 'Dunkin',
     cost: 7,
     fill: '#8D32C3',
     label: 'This is the info on this data point',
