@@ -2,10 +2,12 @@ const data2 = () => {
   const percent = 70;
 
   const dataGauge = [
-    { x: 1, y: percent }, //purple
-    { x: 5, y: 100 - percent }, //white
+    { y: percent }, //purple
+    { y: 100 - percent }, //gray
   ];
-  return { dataGauge, percent };
+
+  const backgroundData = [{ y: 100 }];
+  return { dataGauge, percent, backgroundData };
 };
 
 export default data2;

@@ -17,7 +17,7 @@ const primary = '#ffffff';
 const secondary = '#EBEBF599';
 const tertiary = '#EBEBF54D';
 
-const colors = [purple60, '#2C2C2E'];
+const colors = [purple60, 'lightgray'];
 
 //mui typography
 const fontFamily = [

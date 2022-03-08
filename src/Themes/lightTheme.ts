@@ -16,7 +16,7 @@ const primary = '#ffffff';
 const secondary = '#EBEBF599';
 const tertiary = '#EBEBF54D';
 
-const colors = [purple60, 'white'];
+const colors = [purple60, 'lightgray'];
 
 // background: #FFFFFF80;
 // background: #4D4D4D;

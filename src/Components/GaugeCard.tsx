@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import useCard from './useCard';
-import { VictoryLabel, VictoryPie } from 'victory';
+import { Circle, VictoryClipContainer, VictoryLabel, VictoryPie } from 'victory';
 import data2 from '../Data/data2';
 
 const GuageCard = () => {
@@ -14,10 +14,10 @@ const GuageCard = () => {
     textTheme,
     subTextTheme,
   } = useCard();
-  const { dataGauge, percent } = data2();
+  const { dataGauge, percent, backgroundData } = data2();
 
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'row', backgroundColor: background, height: 500 }}>
+    <Card sx={{ display: 'flex', flexDirection: 'row', backgroundColor: background, height: 350 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           {/* Header & Subheader */}
@@ -27,7 +27,7 @@ const GuageCard = () => {
           <Typography variant="subtitle1" sx={{ color: subTextTheme }}>
             {lob}
           </Typography>
-          <Typography sx={{ color: textTheme, maxWidth: 400, mt: 14 }}>
+          <Typography sx={{ color: textTheme, maxWidth: 400, mt: 3 }}>
             Gauge chart displays
           </Typography>
         </CardContent>
@@ -58,6 +58,17 @@ const GuageCard = () => {
           <VictoryPie
             standalone={false}
             theme={chartTheme}
+            colorScale={['lightgray']}
+            startAngle={-90}
+            endAngle={90}
+            data={backgroundData}
+            innerRadius={120}
+            cornerRadius={25}
+            labels={() => null}
+          />
+          <VictoryPie
+            standalone={false}
+            theme={chartTheme}
             startAngle={-90}
             endAngle={90}
             data={dataGauge}
@@ -65,6 +76,7 @@ const GuageCard = () => {
             cornerRadius={25}
             labels={() => null}
           />
+
           <VictoryLabel
             textAnchor="middle"
             //verticalAnchor="middle"
