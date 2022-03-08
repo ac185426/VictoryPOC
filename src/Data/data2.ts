@@ -1,8 +1,11 @@
-const percent = 70;
+const data2 = () => {
+  const percent = 70;
 
-const data2 = [
-  { x: 1, y: percent, label: 'Alpha' },
-  { x: 5, y: 100 - percent },
-];
+  const dataGauge = [
+    { x: 1, y: percent }, //purple
+    { x: 5, y: 100 - percent }, //white
+  ];
+  return { dataGauge, percent };
+};
 
 export default data2;

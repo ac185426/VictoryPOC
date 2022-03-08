@@ -1,6 +1,6 @@
 import './App.css';
 import CardComponent from './Components/BarCard';
-import GuageCard from './Components/GuageCard';
+import GuageCard from './Components/GaugeCard';
 import { Box, Divider } from '@mui/material';
 
 function App() {
