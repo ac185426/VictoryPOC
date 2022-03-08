@@ -124,6 +124,8 @@ const CardComponent = () => {
               axisLabelComponent={
                 <VictoryLabel dy={20} style={[{ fill: textTheme, fontSize: 16 }]} />
               }
+              //removes default labels
+              tickFormat={() => ''}
             />
             <VictoryAxis
               dependentAxis
@@ -131,14 +133,15 @@ const CardComponent = () => {
               axisLabelComponent={
                 <VictoryLabel dy={-10} style={[{ fill: textTheme, fontSize: 16 }]} />
               }
-              // tickFormat specifies how ticks should be displayed
-              tickFormat={(x) => `$${x}`}
             />
 
+            <VictoryAxis tickFormat={() => ''} />
+
             <VictoryLegend
-              x={260}
-              y={20}
-              gutter={20}
+              x={45}
+              y={255}
+              gutter={15}
+              symbolSpacer={5}
               orientation="horizontal"
               itemsPerRow={5}
               data={[
@@ -153,7 +156,8 @@ const CardComponent = () => {
             <VictoryBar
               animate
               data={data}
-              labels={({ datum }) => datum.label}
+              y="cost"
+              x="restaurants"
               labelComponent={<VictoryTooltip />}
               //accessability which allows tab key through all data bars
               dataComponent={<Bar tabIndex={0} ariaLabel={({ datum }) => `${datum.x}`} />}

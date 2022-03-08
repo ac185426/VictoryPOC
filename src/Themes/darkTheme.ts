@@ -140,6 +140,18 @@ const darkTheme = {
     },
     baseProps,
   ),
+  legend: assign({
+    gutter: 20,
+    orientation: 'horizontal',
+    titleOrientation: 'top',
+    style: {
+      data: {
+        type: 'circle',
+      },
+      labels: baseLabelStyles,
+      title: assign({}, baseLabelStyles, { padding: 5 }),
+    },
+  }),
 };
 
 export default darkTheme;
