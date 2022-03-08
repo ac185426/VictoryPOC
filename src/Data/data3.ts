@@ -1,5 +1,5 @@
-export const data2 = () => {
-  const percent = 30;
+export const data3 = () => {
+  const percent = 70;
 
   const dataGauge = [
     { y: percent }, //purple

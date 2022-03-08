@@ -72,6 +72,8 @@ const CardComponent = () => {
         flexDirection: 'row',
         backgroundColor: background,
         height: 500,
+        width: '105em',
+        m: 5,
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>

@@ -1,9 +1,14 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import useCard from './useCard';
-import { Circle, VictoryClipContainer, VictoryLabel, VictoryPie } from 'victory';
-import data2 from '../Data/data2';
+import { VictoryLabel, VictoryPie } from 'victory';
+import Props from 'react';
 
-const GuageCard = () => {
+interface Props {
+  percent: any;
+  dataGauge: any;
+}
+
+const GaugeCard = ({ percent, dataGauge }: Props) => {
   const {
     chartTheme,
     lob,
@@ -14,13 +19,24 @@ const GuageCard = () => {
     textTheme,
     subTextTheme,
   } = useCard();
-  const { dataGauge, percent, backgroundData } = data2();
+
+  const backgroundData = [{ y: 100 }];
 
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'row', backgroundColor: background, height: 350 }}>
+    <Card
+      sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        backgroundColor: background,
+        height: 350,
+        width: '50em',
+        m: 5,
+      }}
+    >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           {/* Header & Subheader */}
+
           <Typography component="div" variant="h5" sx={{ color: textTheme }}>
             Victory POC
           </Typography>
@@ -67,6 +83,9 @@ const GuageCard = () => {
             labels={() => null}
           />
           <VictoryPie
+            animate={{
+              duration: 2000,
+            }}
             standalone={false}
             theme={chartTheme}
             startAngle={-90}
@@ -98,4 +117,4 @@ const GuageCard = () => {
   );
 };
 
-export default GuageCard;
+export default GaugeCard;
