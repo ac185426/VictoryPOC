@@ -103,7 +103,6 @@ const lightTheme = {
     {
       style: {
         data: {
-          fill: purple80,
           padding,
           stroke: purple20,
           strokeWidth: 0,

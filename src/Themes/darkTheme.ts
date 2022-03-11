@@ -102,7 +102,6 @@ const darkTheme = {
     {
       style: {
         data: {
-          fill: purple90,
           padding,
           stroke: purple70,
           strokeWidth: 0,

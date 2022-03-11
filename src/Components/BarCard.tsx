@@ -136,6 +136,7 @@ const CardComponent = () => {
             theme={chartTheme}
             padding={{ left: 50, top: 45, bottom: 70, right: 0 }}
           >
+            {/* Chart X-Axis & Y-Axis + Title */}
             <VictoryLabel
               text="Profit per Company"
               textAnchor="middle"
@@ -158,9 +159,10 @@ const CardComponent = () => {
                 <VictoryLabel dy={-10} style={[{ fill: textTheme, fontSize: 16 }]} />
               }
             />
-
+            {/* Removes default labels */}
             <VictoryAxis tickFormat={() => ''} />
 
+            {/* Legend used as Tick Labels */}
             <VictoryLegend
               x={45}
               y={245}
@@ -169,20 +171,14 @@ const CardComponent = () => {
               orientation="horizontal"
               itemsPerRow={5}
               labelComponent={<VictoryLabel angle={angle} />}
-              data={[
-                { name: 'Chipotle', symbol: { type: 'circle', fill: '#D8BBF6' } },
-                { name: 'Mad Mex', symbol: { type: 'circle', fill: '#C797F1' } },
-                { name: 'Starbucks', symbol: { type: 'circle', fill: '#B56CEB' } },
-                { name: 'Brusters', symbol: { type: 'circle', fill: '#A744E5' } },
-                { name: 'Dunkin Donuts', symbol: { type: 'circle', fill: '#8D32C3' } },
-              ]}
+              data={data}
             />
 
             <VictoryBar
               animate
               data={data}
               y="cost"
-              x="restaurants"
+              x="name"
               labelComponent={<VictoryTooltip />}
               //accessability which allows tab key through all data bars
               dataComponent={<Bar tabIndex={0} ariaLabel={({ datum }) => `${datum.x}`} />}
@@ -191,31 +187,6 @@ const CardComponent = () => {
                   fill: ({ datum }) => datum.fill,
                 },
               }}
-              // events={[
-              //   {
-              //     target: 'data',
-              //     //eventKey: 'esc',
-              //     eventHandlers: {
-              //       //onFocus: () => activate,
-              //       //onBlur: () => deactivate,
-              //       //remove default label events
-              //       //onMouseOver: () => {},
-              //       //onMouseOut: () => {},
-              //       //add toggle for tooltip
-              //       // onfocus: () => {
-              //       //   return [
-              //       //     {
-              //       //       //need to add logic that is a different data bar is clicked then the new bar will be active and the other will inactive
-              //       //       target: 'data',
-              //       //       mutation: (props) => {
-              //       //         return;
-              //       //       },
-              //       //     },
-              //       //   ];
-              //       // },
-              //     },
-              //   },
-              // ]}
             />
           </VictoryChart>
         </VictoryAccessibleGroup>
