@@ -29,29 +29,30 @@ const GaugeCard = ({ percent, dataGauge }: Props) => {
         flexDirection: 'row',
         backgroundColor: background,
         height: 350,
-        width: '50em',
+        width: '55em',
         m: 5,
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           {/* Header & Subheader */}
-
           <Typography component="div" variant="h5" sx={{ color: textTheme }}>
             Victory POC
           </Typography>
+
+          {/* Subheader*/}
           <Typography variant="subtitle1" sx={{ color: subTextTheme }}>
             {lob}
           </Typography>
+
+          {/* Description */}
           <Typography sx={{ color: textTheme, maxWidth: 400, mt: 3 }}>
             Gauge chart displays
           </Typography>
         </CardContent>
-        <Box sx={{ display: 'block', alignItems: 'center', pl: 1, pb: 1 }}>
-          {/* Theme Buttons
-           *This needs to be dynamic with just one render
-           */}
 
+        {/* Theme Button for Light + dark theme */}
+        <Box sx={{ display: 'block', alignItems: 'center', pl: 1, pb: 1 }}>
           {lob === 'Light' && (
             <div>
               <LightStyles variant="outlined" onClick={themeHandler}>
@@ -71,6 +72,7 @@ const GaugeCard = ({ percent, dataGauge }: Props) => {
       </Box>
       <Box sx={{ color: '#EBEBF599', height: 400, width: 800, mt: 6 }}>
         <svg viewBox="0 0 400 400" width="100%" height="100%">
+          {/* Background Gray Gauge */}
           <VictoryPie
             standalone={false}
             theme={chartTheme}
@@ -82,6 +84,8 @@ const GaugeCard = ({ percent, dataGauge }: Props) => {
             cornerRadius={25}
             labels={() => null}
           />
+
+          {/* Main Purple Gauge */}
           <VictoryPie
             animate={{
               duration: 2000,
@@ -96,6 +100,7 @@ const GaugeCard = ({ percent, dataGauge }: Props) => {
             labels={() => null}
           />
 
+          {/* Gauge Percent Label */}
           <VictoryLabel
             textAnchor="middle"
             //verticalAnchor="middle"
@@ -104,6 +109,8 @@ const GaugeCard = ({ percent, dataGauge }: Props) => {
             text={percent + '%'}
             style={{ fontSize: 45, fill: textTheme }}
           />
+
+          {/* Gauge Title */}
           <VictoryLabel
             text="Network Availability"
             textAnchor="middle"
