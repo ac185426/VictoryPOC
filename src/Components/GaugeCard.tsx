@@ -47,7 +47,7 @@ const GaugeCard = ({ percent, dataGauge }: Props) => {
 
           {/* Description */}
           <Typography sx={{ color: textTheme, maxWidth: 400, mt: 3 }}>
-            Gauge chart displays
+            Gauge chart displays...
           </Typography>
         </CardContent>
 
