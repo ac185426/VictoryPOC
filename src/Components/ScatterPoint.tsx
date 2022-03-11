@@ -8,10 +8,10 @@ export const ScatterPoint = ({ x, y, datum }: any) => {
     <circle
       cx={x}
       cy={y}
-      r={datum.x * datum.y}
-      stroke={hovered ? 'purple' : 'white'}
+      r={15}
+      stroke={hovered ? '#682392' : 'black'}
       strokeWidth={2}
-      fill={selected ? 'cyan' : 'gray'}
+      fill={selected ? 'lightgray' : '#B56CEB'}
       onClick={() => setSelected(!selected)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

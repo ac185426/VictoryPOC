@@ -1,7 +1,10 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import { ScatterPoint } from './ScatterPoint';
-import { VictoryChart, VictoryScatter } from 'victory';
+import { useState, useEffect } from 'react';
+import { VictoryChart, VictoryLabel, VictoryScatter } from 'victory';
 import useCard from './useCard';
+import darkTheme from '../Themes/darkTheme';
+import lightTheme from '../Themes/lightTheme';
 
 export const ScatterChart = () => {
   const {
@@ -14,6 +17,33 @@ export const ScatterChart = () => {
     textTheme,
     subTextTheme,
   } = useCard();
+
+  const [showGrid, setShowGrid] = useState(true);
+  const [axisLabel, setAxisLabel] = useState(20);
+
+  useEffect(() => {
+    const updateGrid = () => {
+      console.log('Show Grid: ', showGrid);
+      if (showGrid) {
+        if (lob === 'Light') {
+          lightTheme.axis.style.grid.stroke = 'black';
+        } else if (lob === 'Dark') {
+          darkTheme.axis.style.grid.stroke = 'white';
+        } else {
+          lightTheme.axis.style.grid.stroke = '';
+          darkTheme.axis.style.grid.stroke = '';
+        }
+      } else {
+        lightTheme.axis.style.grid.stroke = '';
+        darkTheme.axis.style.grid.stroke = '';
+      }
+    };
+    updateGrid();
+  }, [showGrid, chartTheme, lob, DarkStyles, LightStyles, background]);
+
+  const hideGrid = () => {
+    setShowGrid(!showGrid);
+  };
 
   return (
     <Card
@@ -40,7 +70,7 @@ export const ScatterChart = () => {
 
           {/* Description */}
           <Typography sx={{ color: textTheme, maxWidth: 400, mt: 3 }}>
-            Gauge chart displays
+            Scatter Plot displays...
           </Typography>
         </CardContent>
 
@@ -51,6 +81,9 @@ export const ScatterChart = () => {
               <LightStyles variant="outlined" onClick={themeHandler}>
                 Change Theme
               </LightStyles>
+              <LightStyles variant="outlined" onClick={hideGrid} sx={{ mt: 1, minWidth: '10em' }}>
+                {showGrid ? 'Show Grid' : 'Hide Grid'}
+              </LightStyles>
             </div>
           )}
 
@@ -59,12 +92,17 @@ export const ScatterChart = () => {
               <DarkStyles variant="outlined" onClick={themeHandler}>
                 Change Theme
               </DarkStyles>
+              <DarkStyles variant="outlined" onClick={hideGrid} sx={{ mt: 1, minWidth: '10em' }}>
+                {showGrid ? 'Show Grid' : 'Hide Grid'}
+              </DarkStyles>
             </div>
           )}
         </Box>
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <VictoryChart
+          theme={chartTheme}
+          domain={{ x: [0, 5], y: [0, 7] }}
           events={[
             {
               target: 'data',
@@ -81,12 +119,15 @@ export const ScatterChart = () => {
           <VictoryScatter
             name="scatter1"
             data={[
-              { x: 1, y: 7 },
-              { x: 2, y: 5 },
-              { x: 3, y: 2 },
-              { x: 4, y: 6 },
-              { x: 5, y: 3 },
+              { x: 1, y: 2 },
+              { x: 2, y: 3 },
+              { x: 3, y: 5 },
+              { x: 4, y: 4 },
+              { x: 5, y: 7 },
             ]}
+            size={10}
+            labels={({ datum }) => datum.y}
+            labelComponent={<VictoryLabel dy={8} />}
             dataComponent={<ScatterPoint />}
           />
         </VictoryChart>
