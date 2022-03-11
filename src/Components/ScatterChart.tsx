@@ -19,11 +19,9 @@ export const ScatterChart = () => {
   } = useCard();
 
   const [showGrid, setShowGrid] = useState(true);
-  const [axisLabel, setAxisLabel] = useState(20);
 
   useEffect(() => {
     const updateGrid = () => {
-      console.log('Show Grid: ', showGrid);
       if (showGrid) {
         if (lob === 'Light') {
           lightTheme.axis.style.grid.stroke = 'black';

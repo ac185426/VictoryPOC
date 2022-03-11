@@ -33,7 +33,6 @@ const CardComponent = () => {
 
   useEffect(() => {
     const updateGrid = () => {
-      console.log('Show Grid: ', showGrid);
       if (showGrid) {
         if (lob === 'Light') {
           lightTheme.axis.style.grid.stroke = 'black';
@@ -87,7 +86,7 @@ const CardComponent = () => {
           <Typography variant="subtitle1" sx={{ color: subTextTheme }}>
             {lob}
           </Typography>
-          <Typography sx={{ color: textTheme, maxWidth: 400, mt: 14 }}>
+          <Typography id="description" sx={{ color: textTheme, maxWidth: 400, mt: 14 }}>
             Chart displays the average cost customers pay when eating at these resturants. At
             Chipotle customers average $5, at Mad Mex customers average $4, at Starbucks customers
             average $6, at Brusters customers average $3, and at Jinya customers average $7.
@@ -132,7 +131,10 @@ const CardComponent = () => {
         </Box>
       </Box>
       <Box sx={{ color: '#EBEBF599', height: 350, width: 800, mt: 6 }}>
-        <VictoryAccessibleGroup aria-label="POC of the Victory Chart Library">
+        <VictoryAccessibleGroup
+          aria-label="POC of the Victory Chart Library"
+          desc="Bar Chart description"
+        >
           <VictoryChart
             domainPadding={30}
             theme={chartTheme}
