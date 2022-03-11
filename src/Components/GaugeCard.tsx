@@ -30,7 +30,9 @@ const GaugeCard = ({ percent, dataGauge }: Props) => {
         backgroundColor: background,
         height: 350,
         width: '55em',
-        m: 5,
+        mt: 5,
+        ml: 5,
+        mr: 5,
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>

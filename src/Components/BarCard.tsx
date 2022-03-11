@@ -131,10 +131,7 @@ const CardComponent = () => {
         </Box>
       </Box>
       <Box sx={{ color: '#EBEBF599', height: 350, width: 800, mt: 6 }}>
-        <VictoryAccessibleGroup
-          aria-label="POC of the Victory Chart Library"
-          desc="Bar Chart description"
-        >
+        <VictoryAccessibleGroup aria-label="POC of the Victory Chart Library">
           <VictoryChart
             domainPadding={30}
             theme={chartTheme}
