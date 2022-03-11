@@ -126,9 +126,9 @@ export const ScatterChart = () => {
               { x: 5, y: 7 },
             ]}
             size={10}
-            labels={({ datum }) => datum.y}
+            labels={({ datum }) => `Y: ${datum.y}`}
             labelComponent={<VictoryLabel dy={8} />}
-            dataComponent={<ScatterPoint />}
+            dataComponent={<ScatterPoint tabIndex={0} />}
           />
         </VictoryChart>
       </Box>

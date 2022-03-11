@@ -8,7 +8,7 @@ export const ScatterPoint = ({ x, y, datum }: any) => {
     <circle
       cx={x}
       cy={y}
-      r={15}
+      r={20}
       stroke={hovered ? '#682392' : 'black'}
       strokeWidth={2}
       fill={selected ? 'lightgray' : '#B56CEB'}
