@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import useCard from './useCard';
-import { VictoryLabel, VictoryPie } from 'victory';
+import { Circle, Slice, VictoryBar, VictoryLabel, VictoryPie } from 'victory';
 import Props from 'react';
 
 interface Props {
@@ -100,6 +100,7 @@ const GaugeCard = ({ percent, dataGauge }: Props) => {
             innerRadius={120}
             cornerRadius={25}
             labels={() => null}
+            dataComponent={<Slice tabIndex={0} />}
           />
 
           {/* Gauge Percent Label */}

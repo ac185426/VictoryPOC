@@ -15,6 +15,7 @@ export const ScatterPoint = ({ x, y, datum }: any) => {
       onClick={() => setSelected(!selected)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      tabIndex={0}
     />
   );
 };
