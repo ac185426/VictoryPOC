@@ -130,7 +130,6 @@ const lightTheme = {
       colorScale: colors,
       style: {
         data: {
-          //fill: 'red',
           padding,
           stroke: 'transparent',
           strokeWidth: 1,

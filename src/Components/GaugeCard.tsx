@@ -20,8 +20,6 @@ const GaugeCard = ({ percent, dataGauge }: Props) => {
     subTextTheme,
   } = useCard();
 
-  const backgroundData = [{ y: 100 }];
-
   return (
     <Card
       sx={{
@@ -81,7 +79,7 @@ const GaugeCard = ({ percent, dataGauge }: Props) => {
             colorScale={['lightgray']}
             startAngle={-90}
             endAngle={90}
-            data={backgroundData}
+            data={[{ y: 100 }]}
             innerRadius={120}
             cornerRadius={25}
             labels={() => null}
