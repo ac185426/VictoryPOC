@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import useCard from './useCard';
-import { Circle, Slice, VictoryBar, VictoryLabel, VictoryPie } from 'victory';
+import { Slice, VictoryLabel, VictoryPie } from 'victory';
 import Props from 'react';
 
 interface Props {
