@@ -104,7 +104,6 @@ const GaugeCard = ({ percent, dataGauge }: Props) => {
           {/* Gauge Percent Label */}
           <VictoryLabel
             textAnchor="middle"
-            //verticalAnchor="middle"
             x={200}
             y={175}
             text={percent + '%'}
